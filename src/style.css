@@ -1,4 +1,10 @@
+@font-face{
+  font-family: 'myFont';
+  src: url('./Sweet Hipster.ttf') format('truetype');
+  font-weight: 600;
+}
 .hello{
   color: coral;
+  font-family: 'myFont';
   background: url(./doge.jpeg);
 }
