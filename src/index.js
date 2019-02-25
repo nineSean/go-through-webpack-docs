@@ -3,6 +3,10 @@ import {square} from './math.js'
 import printMe from './print.js'
 import './style.css'
 
+if(process.env.NODE_ENV !== 'production'){
+  console.log('Looks like we are in development mode')
+}
+
 function component() {
   // let element = document.createElement('div');
 

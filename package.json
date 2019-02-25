@@ -18,12 +18,12 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-middleware": "^3.6.0",
     "webpack-dev-server": "^3.2.0",
+    "webpack-merge": "^4.2.1",
     "xml-loader": "^1.2.1"
   },
   "scripts": {
-    "dev": "webpack-dev-server --hotOnly --mode development --config webpack.config.js",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --hotOnly --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "server": "node server.js"
   },
   "keywords": [],
