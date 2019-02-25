@@ -1,20 +1,22 @@
-// function getComponent(){
-//   return import(/* webpackChunkName: "lodash" */ 'lodash').then(({default: _}) => {
-//     let element = document.body.createElement('p')
-//     element.innerHTML = _.join(['Hello', 'Sean!'], ' ')
-//     return element
-//   }).catch(e => 'An error occurred while loading the component')
-// }
-async function getComponent(){
-  const element = document.createElement('p')
-  const {default: _} = await import(/* webpackChunkName: loash */ 'lodash')
+const _ = require('lodash')
 
-  element.innerHTML = _join(['Hello', 'Sean'], ' ')
+console.log(1)
+function component(){
+  const element = document.createElement('div')
+  const button = document.createElement('button')
+  const br = document.createElement('br')
+  element.innerHTML = _.join(['Hello', 'Sean'], ' ')
+  button.innerHTML = 'click'
+  ;[button, br].forEach(item => {
+    element.appendChild(item)
+  })
+  button.onclick = e => import(/* webpackChunkName: 'print' */ './print').then(module => {
+    const print = module.default
+    print()
+  })
   return element
 }
 
-getComponent().then(component => {
-  document.body.appendChild(component)
-})
+document.body.appendChild(component())
 
 
