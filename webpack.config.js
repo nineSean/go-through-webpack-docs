@@ -6,20 +6,14 @@ const webpack = require('webpack')
 module.exports = {
   entry: {
     index: './src/index.js',
-    another: './src/another-module.js'
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
   mode: 'development',
-  optimization: {
-    usedExports: true,
-    splitChunks: {
-      chunks: 'all',
-    }
-  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
