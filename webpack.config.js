@@ -8,13 +8,25 @@ module.exports = {
     print: './src/print.js'
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contentHash].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HTMLWebpackPlugin({
-      title: 'Output Management',
+      title: 'caching',
     })
-  ]
+  ],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[/\\]node_modules[/\\]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 }
